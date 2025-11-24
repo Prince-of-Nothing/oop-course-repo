@@ -49,4 +49,50 @@ public class TextData {
         return longestWord;
     }
 
+
+    private int countVowels(String text) {
+        int count = 0;
+        for (char letter : text.toLowerCase().toCharArray()) {
+            if ("aeiouăâî".indexOf(letter) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int countConsonants(String text) {
+        int count = 0;
+        for (char letter : text.toLowerCase().toCharArray()) {
+            if (Character.isLetter(letter) && "aeiouăâî".indexOf(letter) == -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int countLetters(String text) {
+        int count = 0;
+        for (char c : text.toCharArray()) {
+            if (Character.isLetter(c)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int countSentences(String text) {
+        String[] sentences = text.split("[.!?]");
+        return sentences.length;
+    }
+
+    private String findLongestWord(String text) {
+        String[] words = text.split("[^\\p{L}]+");
+        String longest = "";
+        for (String word : words) {
+            if (word.length() > longest.length()) {
+                longest = word;
+            }
+        }
+        return longest;
+    }
 }
