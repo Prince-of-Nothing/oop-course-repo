@@ -27,6 +27,13 @@ public class Display {
         }
     }
     public void compareSharpness(Display m) {
+        if (this.ppi > m.ppi) {
+            System.out.println(this.model + " is sharper than " + m.model);
+        } else if (this.ppi < m.ppi) {
+            System.out.println(m.model + " is sharper than " + this.model);
+        } else {
+            System.out.println(this.model + " and " + m.model + " have the same sharpness.");
+        }
     }
     public void compareWithMonitor(Display m) {
         compareSize(m);
