@@ -29,5 +29,7 @@ public class Display {
     public void compareSharpness(Display m) {
     }
     public void compareWithMonitor(Display m) {
+        compareSize(m);
+        compareSharpness(m);
     }
 }
