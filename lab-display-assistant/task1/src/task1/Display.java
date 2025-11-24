@@ -16,6 +16,15 @@ public class Display {
     public void compareSize(Display m) {
     //How does one compare size ? by length and width , they could be different , but a 1440 × 1440 display is the same as a 1920 × 1080 display in terms of area by the number of pixels ...
     //Conclusion : calculate area to obtain the size
+    int thisSize = this.width * this.height;
+        int otherSize = m.width * m.height;
+        if (thisSize > otherSize) {
+            System.out.println(this.model + " is larger in size than " + m.model);
+        } else if (thisSize < otherSize) {
+            System.out.println(m.model + " is larger in size than " + this.model);
+        } else {
+            System.out.println(this.model + " and " + m.model + " have the same size.");
+        }
     }
     public void compareSharpness(Display m) {
     }
