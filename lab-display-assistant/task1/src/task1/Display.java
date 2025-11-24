@@ -39,4 +39,19 @@ public class Display {
         compareSize(m);
         compareSharpness(m);
     }
+//Following are just in case I want to obtain things like width height ... since it is private
+    public int getWidth() {
+        return width;
+        }
+
+    public int getHeight() {
+            return this.height;
+        }
+
+    public String getModel() {
+        return this.model;
+        }
+    public float getPpi() {
+            return this.ppi;
+        }
 }
