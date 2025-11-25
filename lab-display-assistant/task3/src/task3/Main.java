@@ -13,5 +13,11 @@ public class Main {
         Display display4 = new Display(5120, 2880, 230, "Valve Gamecube Monitor");
         Display display5 = new Display(1920, 1080, 215, "HP Sect 22");
    
-    }
-}
+        // Assigned all displays to the assistant
+        assistant.assignDisplay(display1);
+        assistant.assignDisplay(display2);
+        assistant.assignDisplay(display3);
+        assistant.assignDisplay(display4);
+        assistant.assignDisplay(display5);
+
+}}
