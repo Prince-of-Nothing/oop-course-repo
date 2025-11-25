@@ -39,6 +39,13 @@ public class Assistant {
     }
     // Removes a display from the list and returns it
     public Display buyDisplay(Display d) {
+        if (assignedDisplays.remove(d)) {
+            System.out.println("Display purchased: " + d.getModel());
+            return d;
+        } else {
+            System.out.println("Display not found.");
+            return null;
+        }
     }
 
     // Returns the number of assigned displays
