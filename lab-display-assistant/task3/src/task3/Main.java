@@ -19,5 +19,8 @@ public class Main {
         assistant.assignDisplay(display3);
         assistant.assignDisplay(display4);
         assistant.assignDisplay(display5);
+// Assist with display comparison
+        assistant.assist();
 
-}}
+}
+}
