@@ -1,6 +1,5 @@
 package task3;
 import task1.Display;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,14 +49,22 @@ public class Assistant {
 
     // Returns the number of assigned displays
     public int getAssignedDisplaysCount() {
+        return assignedDisplays.size();
     }
-
     // Returns the Display object at the specified index
     public Display getDisplayByIndex(int index) {
+        return assignedDisplays.get(index);
     }
 
     // Lists all available displays for purchase
     public void listAvailableDisplays() {
-        
+        if (assignedDisplays.isEmpty()) {
+            System.out.println("No displays available for purchase.");
+            return;
+        }
+
+        for (int i = 0; i < assignedDisplays.size(); i++) {
+            System.out.println((i + 1) + ". " + assignedDisplays.get(i).getModel());
+        }
     }
 }
