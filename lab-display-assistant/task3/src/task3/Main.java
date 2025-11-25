@@ -1,5 +1,6 @@
 package task3;
 
+import java.util.Scanner;
 import task1.Display;
 
 public class Main {
@@ -19,8 +20,27 @@ public class Main {
         assistant.assignDisplay(display3);
         assistant.assignDisplay(display4);
         assistant.assignDisplay(display5);
-// Assist with display comparison
+        // Assist with display comparison, so the user chooses the most expensive one (I am joking here)
         assistant.assist();
+        // Buy a display that the user wants
+        Scanner scan = new Scanner(System.in);
+        System.out.println("\nAvailable displays to purchase:");
+        assistant.listAvailableDisplays();  // Added method to list available displays, so the user can see a numerical representation
 
+        System.out.print("\nEnter the number of the display to buy (1-" + assistant.getAssignedDisplaysCount() + "): ");
+        int choice = scan.nextInt();
+
+        if (choice > 0 && choice <= assistant.getAssignedDisplaysCount()) {
+            Display selectedDisplay = assistant.getDisplayByIndex(choice - 1);
+            assistant.buyDisplay(selectedDisplay);
+        } else {
+            System.out.println("Invalid choice. Please select a valid display number.");
+        }
+
+        // Print how many displays and remaining displays
+        System.out.println("\nRemaining displays:");
+        assistant.listAvailableDisplays();
+
+        scan.close(); // Close the scanner to prevent resource leaks
 }
 }
