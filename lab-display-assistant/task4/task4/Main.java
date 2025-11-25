@@ -1,4 +1,4 @@
-package task2;
+package task4;
 
 import java.io.IOException;//In case if file handling fails
 
@@ -11,11 +11,11 @@ public class Main {
         }
 
         // Loop through each file path provided in the arguments
-        String filePath = args[0];
-            try {
-                String content = FileReader.readFileIntoString(filePath);
-            TextData textData = new TextData(filePath, content);
-              System.out.println("----- Text Data Analysis -----");
+        
+        for (String filePath : args)   try {
+        String content = FileReader.readFileIntoString(filePath);
+        TextData textData = new TextData(filePath, content);
+        System.out.println("----- Text Data Analysis -----");
         System.out.println("File Name       : " + textData.getFileName());
       
         System.out.println("Vowels          : " + textData.getNumberOfVowels());

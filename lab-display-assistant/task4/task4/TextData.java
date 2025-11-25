@@ -1,4 +1,4 @@
-package task2;
+package task4;
 
 public class TextData {
     //The private attributes
