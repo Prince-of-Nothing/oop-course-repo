@@ -1,3 +1,2 @@
-# OOP COURSE GIT TRACKING
-
-This is a public repository that contains OOP course tracked materials.
+# OOP COURSE Laboratories
+This is a private repository that stores the labs done by Pleșu Dinu for OOP course
