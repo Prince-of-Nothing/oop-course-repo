@@ -1,5 +1,7 @@
 package task3;
 import task1.Display;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Assistant {
@@ -7,10 +9,15 @@ public class Assistant {
     private List<Display> assignedDisplays;
 
     public Assistant(String assistantName) {
+        this.assistantName = assistantName;
+        this.assignedDisplays = new ArrayList<>();
     }
 
     // Adds a Display object to the assignedDisplays list
+    // Adds a Display object to the assignedDisplays list
     public void assignDisplay(Display d) {
+        assignedDisplays.add(d);
+        System.out.println("Assigned display: " + d.getModel());
     }
 
     // Iterates through assignedDisplays, comparing each Display with every other Display
