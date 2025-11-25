@@ -21,9 +21,22 @@ public class Assistant {
     }
 
     // Iterates through assignedDisplays, comparing each Display with every other Display
-    public void assist() {
+ public void assist() {
+        System.out.println("\n" + assistantName + " assisting with display comparison:");
+        if (assignedDisplays.isEmpty()) {
+            System.out.println("No displays assigned.");
+            return;
+        }
+// Compare each display with every other display
+        for (int DisplayIndex = 0; DisplayIndex < assignedDisplays.size(); DisplayIndex++) {
+            Display currentDisplay = assignedDisplays.get(DisplayIndex);
+            for (int comparedDisplayIndex = DisplayIndex + 1; comparedDisplayIndex < assignedDisplays.size(); comparedDisplayIndex++) {
+                Display otherDisplay = assignedDisplays.get(comparedDisplayIndex);
+                System.out.println("\nComparing " + currentDisplay.getModel() + " with " + otherDisplay.getModel() + ":");
+                currentDisplay.compareWithMonitor(otherDisplay);
+            }
+        }
     }
-
     // Removes a display from the list and returns it
     public Display buyDisplay(Display d) {
     }
