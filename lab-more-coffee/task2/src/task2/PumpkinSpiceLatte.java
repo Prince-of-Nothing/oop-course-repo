@@ -26,7 +26,7 @@ public class PumpkinSpiceLatte extends Cappuccino {
      
     @Override
     public void printCoffeeDetails() {
-        System.out.println("Coffee type: " + getName());
-        System.out.println("Intensity:"+getCoffeeIntensity()+"Ingredients: Milk "+super.getMlOfMilk()+"mL"+", "+"Pumpkin Spice "+mgOfPumpkinSpice+"mg");
+        intensity();
+        System.out.println(getName()+" milk: "+super.getMlOfMilk()+"mL"+" pumpkin spice: "+mgOfPumpkinSpice+" mg");
         }  
 }

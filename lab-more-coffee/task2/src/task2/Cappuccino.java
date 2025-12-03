@@ -12,11 +12,11 @@ public class Cappuccino extends Coffee {
     public int getMlOfMilk() {return mlOfMilk;}
 
     @Override
- public String getName(){return coffee;}
+    public String getName(){return coffee;}
 
-    @Override
-public void printCoffeeDetails() {
-System.out.println("Coffee type: " + getName());
-System.out.println("Intensity:"+getCoffeeIntensity()+"Ingredients: Milk "+ mlOfMilk+"mL");
-}
+        @Override
+    public void printCoffeeDetails() {
+        intensity();
+        System.out.println(getName()+" milk: "+ mlOfMilk+" mL");
+    }
 }

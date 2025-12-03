@@ -11,10 +11,10 @@ public class Coffee {
     public void setCoffeeIntensity(Intensity coffeeIntensity) {this.coffeeIntensity = coffeeIntensity;}
     
     public String getName() {return name;}
-    
+    public void intensity(){System.out.println("Coffee intensity: " + getCoffeeIntensity());}
     public void printCoffeeDetails() {
-        System.out.println("Coffee type: " + getName());
-        System.out.println("Intensity: "+getCoffeeIntensity()+"; Ingredients:"+getCoffeeIntensity());
+        intensity();
+        System.out.println("Cappucino milk:50mg");
     }
 
 }

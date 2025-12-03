@@ -15,13 +15,13 @@ public class SyrupCappuccino extends Cappuccino {
     public SyrupType getSyrup() {return syrup;}
 
     public String getCoffee() {return coffee;}
-    
+
     @Override
     public String getName(){return coffee;}
 
     @Override
     public void printCoffeeDetails() {
-        System.out.println("Coffee type: " + getName());
-        System.out.println("Intensity:"+getCoffeeIntensity()+"Ingredients: Milk "+super.getMlOfMilk()+"mL"+", "+syrup+" Syrup ");
+        intensity();
+        System.out.println(syrup+" "+getName()+" milk: "+super.getMlOfMilk()+" mL");
         }  
 }

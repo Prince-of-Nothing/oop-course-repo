@@ -17,11 +17,11 @@ public class Americano extends Coffee {
 
     public int getMlOfWater() {return mlOfWater;}
 
-     @Override
+    @Override
     public void printCoffeeDetails() {
-        System.out.println("Coffee type: " + getName());
-        System.out.println("Intensity:"+getCoffeeIntensity()+"Ingredients: Water "+mlOfWater+"mL");
-        }  
+        intensity();
+        System.out.println(getName()+" water: "+mlOfWater+" mL");
+    }  
 
 }
 
