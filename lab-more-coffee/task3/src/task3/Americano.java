@@ -7,7 +7,10 @@ public class Americano extends Coffee {
     
     public Americano makeAmericano() {
         System.out.println("Preparing a Classic Americano");
-        makeCoffee();
+        System.out.printf("Intensity set to %s%n", getCoffeeIntensity());
+        System.out.println("Coffee is being grounded");
+        System.out.println("Coffee Grounds are ready");
+        System.out.println("Espresso Shot was brewed to perfection");
         System.out.printf("Using %d mls of water for the coffee", mlOfWater);
         System.out.println("Espresso Shot was brewed to perfection");
         System.out.println("Dilluting the shot with water");

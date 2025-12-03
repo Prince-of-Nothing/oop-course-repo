@@ -7,7 +7,10 @@ public class SyrupCappuccino extends Cappuccino {
 
     public SyrupCappuccino makeSyrupCappucino() {
         System.out.println("Preparing a Syrup Cappucino");
-        makeCoffee();
+        System.out.printf("Intensity set to %s%n", getCoffeeIntensity());
+        System.out.println("Coffee is being grounded");
+        System.out.println("Coffee Grounds are ready");
+        System.out.println("Espresso Shot was brewed to perfection");
         System.out.printf("Adding Syrup with %s flavor to the cup%n", syrup);
         System.out.printf("Adding %d mls of milk to the steamer", super.getMlOfMilk());
         System.out.printf("Milk  was Steamed");

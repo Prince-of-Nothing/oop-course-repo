@@ -8,7 +8,10 @@ public class PumpkinSpiceLatte extends Cappuccino {
     
     public PumpkinSpiceLatte makePumpkinSpiceLatte() {
         System.out.println("Preparing a Pumpkin Spice Latte");
-        makeCoffee();
+        System.out.printf("Intensity set to %s%n", getCoffeeIntensity());
+        System.out.println("Coffee is being grounded");
+        System.out.println("Coffee Grounds are ready");
+        System.out.println("Espresso Shot was brewed to perfection");
         System.out.printf("Adding %d mls of milk to the steamer", mlOfMilk);
         System.out.printf("Milk  was Steamed");
         System.out.println("Combining espresso with steamed milk"); 

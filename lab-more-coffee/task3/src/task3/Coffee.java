@@ -4,11 +4,13 @@ public class Coffee {
     private Intensity coffeeIntensity;
     private final String name = "Coffee";
 
-    public void makeCoffee() {
+     public void makeCoffee() {
+        System.out.printf("Preparing a Coffee");
          System.out.printf("Intensity set to %s%n", getCoffeeIntensity());
         System.out.println("Coffee is being grounded");
         System.out.println("Coffee Grounds are ready");
         System.out.println("Espresso Shot was brewed to perfection");
+        System.out.println("~Your Coffee is now ready to enjoy!~");
         }
 
     public Coffee(Intensity coffeeIntensity) {this.coffeeIntensity = coffeeIntensity;}
@@ -19,10 +21,7 @@ public class Coffee {
     
     public String getName() {return name;}
     public void intensity(){System.out.println("Coffee intensity: " + getCoffeeIntensity());}
-    public void printCoffeeDetails() {
-        intensity();
-        System.out.println("Cappucino milk: 50mg");
-    }
+    public void printCoffeeDetails() {intensity();}
 
 }
 

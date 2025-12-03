@@ -14,7 +14,6 @@ public class Coffee {
     public void intensity(){System.out.println("Coffee intensity: " + getCoffeeIntensity());}
     public void printCoffeeDetails() {
         intensity();
-        System.out.println("Cappucino milk:50mg");
     }
 
 }
