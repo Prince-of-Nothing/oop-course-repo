@@ -2,16 +2,17 @@ package task1;
 
 public class Americano extends Coffee {
     private int mlOfWater;
-    private static final String name = "Americano";
+    private  final String coffeeName= "Americano";
 
-    public Americano(Intensity intensity, int mlOfWater) {
-        super(intensity);
+    public Americano(Intensity intensityOfCoffee, int mlOfWater) {
+        super(intensityOfCoffee);
         this.mlOfWater = mlOfWater;
     }
+    @Override
     public String getName(){
 
 
-        return name;
+        return coffeeName;
 
     }
     public int getMlOfWater() {
@@ -21,4 +22,8 @@ public class Americano extends Coffee {
     public void setMlOfWater(int mlOfWater) {
         this.mlOfWater = mlOfWater;
     }
-}
+    
+
+
+    }
+

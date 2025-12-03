@@ -1,25 +1,20 @@
 package task1;
-
-
-
-
-
 public class Coffee {
 
 
-    private final Intensity intensity;
+    private Intensity coffeeIntensity;
 
 
-    private final String name = "Coffee";
+private final String name = "Coffee";
 
 
 
 
 
-    public Coffee(Intensity intensity) {
+    public Coffee(Intensity coffeeIntensity) {
 
 
-        this.intensity = intensity;
+        this.coffeeIntensity = coffeeIntensity;
 
 
     }
@@ -31,7 +26,7 @@ public class Coffee {
     public Intensity getCoffeeIntensity() {
 
 
-        return intensity;
+        return coffeeIntensity;
 
 
     }

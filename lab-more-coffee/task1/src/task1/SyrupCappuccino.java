@@ -4,8 +4,8 @@ public class SyrupCappuccino extends Cappuccino {
     private SyrupType syrup;
     private final String coffee = "SyrupCappuccino";
 
-    public SyrupCappuccino(Intensity coffeeIntensity, int mlOfMilk, SyrupType syrup) {
-        super(coffeeIntensity, mlOfMilk);
+    public SyrupCappuccino(Intensity intensityCoffee, int mlOfMilk, SyrupType syrup) {
+        super(intensityCoffee, mlOfMilk);
         this.syrup = syrup;
     }
 
@@ -17,8 +17,8 @@ public class SyrupCappuccino extends Cappuccino {
         this.syrup = syrup;
     }
 
-    @Override
     public String getCoffee() {
         return coffee;
     }
+    
 }
