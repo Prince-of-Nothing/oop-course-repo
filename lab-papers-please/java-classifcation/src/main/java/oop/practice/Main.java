@@ -53,15 +53,27 @@ public class Main {
 
     List<Character> individualsList = mapper.readValue(data.toString(), new TypeReference<List<Character>>() {});
     for (Character test: individualsList){System.out.println(test.toString());}
+ for (Character obj: individualsList){ System.out.println(obj.toString());}
+   System.out.println("\nCharacters with odd id: ");
 
 
 
-    
-  }
-  
+    for (Character obj: individualsList){
+      if(obj.getId() % 2 != 0){
+          System.out.println(obj.toString());
+      }
+    }
+    System.out.println("\nCharacters with specified age: ");
+    for (Character obj: individualsList){
+      if (obj.getAge() > 0) {
+        System.out.println(obj.toString());
+      } else {
+        System.out.println("\nCharacter with unknown age (age = 0): " + obj.toString());
+      }
+    }
 }
 
 record Universe(
     String name,
     List<JsonNode> individuals
-) { }
+) { }}
