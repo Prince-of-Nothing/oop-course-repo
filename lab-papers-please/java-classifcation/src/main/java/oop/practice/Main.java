@@ -49,7 +49,10 @@ public class Main {
 
    
     List<Character> individualsList = mapper.readValue(data.toString(), new TypeReference<List<Character>>() {});
+  for(JsonNode entry : data){
 
+      PrettyPrint.printEntry(entry);
+    }
     for (Character obj: individualsList){
 
 

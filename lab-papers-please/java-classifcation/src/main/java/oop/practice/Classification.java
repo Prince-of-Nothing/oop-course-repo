@@ -24,22 +24,25 @@ public class Classification {
 
         // Handle Star Wars Classification
         if (isHumanoid == null || isHumanoid == BooleanState.FALSE) {
-            if ("Kashyyyk".equalsIgnoreCase(planet) && age > 0 && traits != null && traits.contains("HAIRY")) {
+            if ("Kashyyyk".equalsIgnoreCase(planet) && (age > -1 && age<401)&& traits != null && traits.contains("HAIRY")&& traits.contains("TALL")) {
                 return 1; // Wookie
-            } else if ("Endor".equalsIgnoreCase(planet) && age > 0 && traits != null && traits.contains("HAIRY")) {
+            } else if ("Endor".equalsIgnoreCase(planet) && (age > -1 && age<61 )&& traits != null && traits.contains("HAIRY") && traits.contains("SHORT")) {
                 return 1; // Ewok
             }
+            if (age > -1 && age<201&&"Vogsphere".equalsIgnoreCase(planet)&&traits != null && traits.contains("BULKY")&& traits.contains("GREEN")){
+                    return 3; // Likely a Vogon
+                }
         } else if (isHumanoid != null && isHumanoid == BooleanState.TRUE) {
-            if ("Asgard".equalsIgnoreCase(planet) && age > 0 && traits != null && traits.contains("BLONDE")) {
+            if ("Asgard".equalsIgnoreCase(planet) && age > -1 && age<5001&& traits != null && traits.contains("BLONDE")&& traits.contains("TALL")) {
                 return 2; // Asgardian
-            } else if ("Betelgeuse".equalsIgnoreCase(planet) && age > 0 && traits != null &&
+            } else if ("Betelgeuse".equalsIgnoreCase(planet) && age > -1&&age<101 && traits != null &&
                     (traits.contains("EXTRA_ARMS") || traits.contains("EXTRA_HEAD"))) {
                 return 3; // Betelgeusian
             } else if ("Earth".equalsIgnoreCase(planet)) {
-                if (traits != null) {
-                    if (traits.contains("BLONDE") && traits.contains("POINTY_EARS")) {
+                if (traits != null) {//LOTR species
+                    if (traits.contains("BLONDE") &&  age>-1&&traits.contains("POINTY_EARS")) {
                         return 4; // Elf
-                    } else if (traits.contains("SHORT") && traits.contains("BULKY")) {
+                    } else if (traits.contains("SHORT") && age>-1&&age<201&&traits.contains("BULKY")) {
                         return 4; // Dwarf
                     }
                 }
