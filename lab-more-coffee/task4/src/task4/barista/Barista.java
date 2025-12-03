@@ -56,6 +56,7 @@ public class Barista {
     }
 
     private void handleCoffeeOrder(String coffeeType) {
+        printSeparator();
         System.out.println("Would you like the Barista recommendation or customize it yourself?");
         System.out.println("1. Barista Recommendation");
         System.out.println("2. Customize");
@@ -63,15 +64,19 @@ public class Barista {
 
         int choice = getValidatedIntegerInput("Enter your choice: ", 1, 2);
         Coffee coffee;
-
+        printSeparator();
         if (choice == 1) {
+            
             coffee = getBaristaRecommendation(coffeeType);
             System.out.println("Here is our recommended " + coffeeType + " just for you!");
+            
         } else {
+           
             coffee = getCustomCoffee(coffeeType);
             System.out.println("Your custom " + coffeeType + " is ready!");
+            
         }
-
+        printSeparator();
         coffee.printCoffeeDetails();
 
 
@@ -96,6 +101,9 @@ public class Barista {
         SyrupType syrup = null;
 
         switch (coffeeType) {
+            case "Coffee" -> {
+                return new Coffee(intensity);
+            }
             case "Americano" -> {
                 mlOfWater = getValidatedIntegerInput("Enter ml of water: ", 50, 300);
                 return new Americano(intensity, mlOfWater);
@@ -119,6 +127,7 @@ public class Barista {
     }
 
     private Intensity getIntensity() {
+        printSeparator();
         System.out.println("Select coffee intensity:");
         System.out.println("1. Light");
         System.out.println("2. Normal");
@@ -149,7 +158,7 @@ public class Barista {
     private boolean getUserConfirmation() {
         Scanner scanner = new Scanner(System.in);
         String response = scanner.next().trim().toLowerCase();
-        return response.equals("yes") || response.equals("y");
+        return response.equals("yes") || response.equals("y")||response.equals("Y");
     }
 
     private int getValidatedIntegerInput(String prompt, int minValue, int maxValue) {
@@ -174,6 +183,7 @@ public class Barista {
     }
 
     private void printMenu() {
+        printSeparator();
         System.out.println("Welcome to the Coffee Shop!");
         System.out.println("Choose your coffee type:");
         System.out.println("1. Coffee");
