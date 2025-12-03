@@ -1,60 +1,21 @@
 package task2;
 public class Coffee {
-
-
+    
     private Intensity coffeeIntensity;
+    private final String name = "Coffee";
 
+    public Coffee(Intensity coffeeIntensity) {this.coffeeIntensity = coffeeIntensity;}
+    
+    public Intensity getCoffeeIntensity() {return coffeeIntensity;}
 
-private final String name = "Coffee";
-
-
-
-
-
-    public Coffee(Intensity coffeeIntensity) {
-
-
-        this.coffeeIntensity = coffeeIntensity;
-
-
+    public void setCoffeeIntensity(Intensity coffeeIntensity) {this.coffeeIntensity = coffeeIntensity;}
+    
+    public String getName() {return name;}
+    
+    public void printCoffeeDetails() {
+        System.out.println("Coffee type: " + getName());
+        System.out.println("Intensity: "+getCoffeeIntensity()+"; Ingredients:"+getCoffeeIntensity());
     }
-
-
-
-
-
-    public Intensity getCoffeeIntensity() {
-
-
-        return coffeeIntensity;
-
-
-    }
-
-
-
-
-
-    public void setCoffeeIntensity(Intensity coffeeIntensity) {
-
-
-        this.coffeeIntensity = coffeeIntensity;
-
-
-    }
-
-
-
-
-
-    public String getName() {
-
-
-        return name;
-
-
-    }
-
 
 }
 

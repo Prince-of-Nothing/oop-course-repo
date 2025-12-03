@@ -2,7 +2,7 @@ package task1;
 
 public class PumpkinSpiceLatte extends Cappuccino {
     private int mgOfPumpkinSpice;
-    private static final String NAME= "PumpkinSpiceLatte";
+    private final String name= "PumpkinSpiceLatte";
     private int mlOfMilk;
     public PumpkinSpiceLatte(Intensity intensityOfCoffee, int mlOfMilk, int mgOfPumpkinSpice) {
         super(intensityOfCoffee, mlOfMilk);
@@ -24,6 +24,6 @@ public void setMlOfMilk(int mlOfMilk) { this.mlOfMilk = mlOfMilk; }
 
     @Override
     public String getName() {
-        return NAME;
+        return name;
     }
 }

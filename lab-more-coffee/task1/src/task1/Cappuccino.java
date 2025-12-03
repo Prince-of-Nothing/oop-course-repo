@@ -2,7 +2,7 @@ package task1;
 
 public class Cappuccino extends Coffee {
     private int mlOfMilk;
-    private  final String name = "Cappuccino";
+    private  final String coffee = "Cappuccino";
 
     public Cappuccino(Intensity intensity, int mlOfMilk) {
         super(intensity);
@@ -20,7 +20,7 @@ public class Cappuccino extends Coffee {
  public String getName(){
 
 
-        return name;
+        return coffee;
 
     }
     
