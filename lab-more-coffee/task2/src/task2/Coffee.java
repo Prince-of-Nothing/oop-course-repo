@@ -1,16 +1,11 @@
 package task2;
-
-
-
-
-
 public class Coffee {
 
 
     private Intensity coffeeIntensity;
 
 
-    private final String name = "Coffee";
+private final String name = "Coffee";
 
 
 

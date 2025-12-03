@@ -2,10 +2,10 @@ package task2;
 
 public class Cappuccino extends Coffee {
     private int mlOfMilk;
-    private final String coffee = "Cappuccino";
+    private  final String coffee = "Cappuccino";
 
-    public Cappuccino(Intensity coffeeIntensity, int mlOfMilk) {
-        super(coffeeIntensity);
+    public Cappuccino(Intensity intensity, int mlOfMilk) {
+        super(intensity);
         this.mlOfMilk = mlOfMilk;
     }
 
@@ -16,8 +16,12 @@ public class Cappuccino extends Coffee {
     public void setMlOfMilk(int mlOfMilk) {
         this.mlOfMilk = mlOfMilk;
     }
+    @Override
+ public String getName(){
 
-    public String getCoffee() {
+
         return coffee;
+
     }
+    
 }
