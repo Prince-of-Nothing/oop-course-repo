@@ -1,18 +1,18 @@
 package oop.practice;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Main {
   public static void main(String[] args) throws IOException {
     ObjectMapper mapper = new ObjectMapper();
-    File inputFile = new File("src/main/resources/test-input.json");
+    File inputFile = new File("lab-papers-please\\java-classifcation\\src\\main\\resources\\test-input.json");
     JsonNode data = mapper.readTree(inputFile).get("data");
 
     Universe starWars = new Universe("starWars", new ArrayList<>());
@@ -45,10 +45,10 @@ public class Main {
     }
 
     scanner.close();
-    mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
-    mapper.writeValue(new File("src/main/resources/output/hitchhiker.json"), hitchhikers);
-    mapper.writeValue(new File("src/main/resources/output/rings.json"), rings);
-    mapper.writeValue(new File("src/main/resources/output/marvel.json"), marvel);
+    mapper.writeValue(new File("lab-papers-please\\output\\starwars.json"), starWars);
+    mapper.writeValue(new File("lab-papers-please\\output\\hitchhiker.json"), hitchhikers);
+    mapper.writeValue(new File("lab-papers-please\\output\\rings.json"), rings);
+    mapper.writeValue(new File("lab-papers-please\\output\\marvel.json"), marvel);
   }
 }
 
