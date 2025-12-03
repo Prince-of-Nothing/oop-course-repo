@@ -2,15 +2,24 @@ package oop.practice;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class Character {
+    @JsonProperty("id")
     private int id;
-    private Boolean isHumanoid;
+    @JsonProperty("isHumanoid")
+    private boolean isHumanoid;
+    @JsonProperty("planet")
     private String planet;
-    private Integer age;
+    @JsonProperty("age")
+    private int age;
+    @JsonProperty("traits")
     private List<String> traits;
 
     // Constructor
-    public Character(int id, Boolean isHumanoid, String planet, Integer age, List<String> traits) {
+    public Character(int id, boolean isHumanoid, String planet, int age, List<String> traits) {
         this.id = id;
         this.isHumanoid = isHumanoid;
         this.planet = planet;
@@ -31,11 +40,11 @@ public class Character {
     }
 
     
-    public void setIsHumanoid(Boolean isHumanoid) {
+    public void setIsHumanoid(boolean isHumanoid) {
         this.isHumanoid = isHumanoid;
     }
 
-    public Boolean getIsHumanoid() {
+    public boolean getIsHumanoid() {
         return isHumanoid;
     }
 
@@ -48,11 +57,11 @@ public class Character {
         return planet;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
