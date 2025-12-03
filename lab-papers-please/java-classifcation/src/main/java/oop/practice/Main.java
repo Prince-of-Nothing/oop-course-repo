@@ -3,6 +3,7 @@ package oop.practice;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -49,7 +50,30 @@ public class Main {
     mapper.writeValue(new File("lab-papers-please\\output\\hitchhiker.json"), hitchhikers);
     mapper.writeValue(new File("lab-papers-please\\output\\rings.json"), rings);
     mapper.writeValue(new File("lab-papers-please\\output\\marvel.json"), marvel);
+
+
+
+
+    Character character1 = new Character(0, false, "Kashyyyk", 253, Arrays.asList("HAIRY", "TALL"));
+
+
+
+
+
+    // Creating another character with default constructor and using setters
+
+
+    Character character2 = new Character();
+    character2.setId(1);
+    character2.setIsHumanoid(true);
+    character2.setPlanet("Betelgeuse");
+    character2.setAge(59);
+    character2.setTraits(Arrays.asList("EXTRA_ARMS", "EXTRA_HEAD"));
+    // Print character details
+    System.out.println(character1);
+    System.out.println(character2);
   }
+  
 }
 
 record Universe(
