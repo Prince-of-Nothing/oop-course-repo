@@ -10,6 +10,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import oop.practice.Main.Universe;
+
 public class Main {
   public static void main(String[] args) throws IOException {
     ObjectMapper mapper = new ObjectMapper();
@@ -23,7 +25,7 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    for (JsonNode entry : data) {
+  /*Manual maybe later  for (JsonNode entry : data) {
       String entryAsString = entry.toString();
       System.out.println(entryAsString);
       String userInput = scanner.nextLine();
@@ -43,34 +45,77 @@ public class Main {
         default:
           System.out.println("Invalid input");
       }
+    }*/
+
+   
+    List<Character> individualsList = mapper.readValue(data.toString(), new TypeReference<List<Character>>() {});
+
+    for (Character obj: individualsList){
+
+
+      if(obj.getId() % 2 != 0){
+
+
+        System.out.println(obj.toString());
+
+
+      }
+
+
+      JsonNode entry = mapper.valueToTree(obj);
+
+
+      switch (Classification.getClassification(obj)) {
+
+
+        case 1:
+
+
+          starWars.individuals().add(entry);
+
+
+          break;
+
+
+        case 2:
+
+
+          hitchhikers.individuals().add(entry);
+
+
+          break;
+
+
+        case 3:
+
+
+          marvel.individuals().add(entry);
+
+
+          break;
+
+
+        case 4:
+
+
+          rings.individuals().add(entry);
+
+
+          break;
+
+
+        default:
+
+
+          System.out.println("Something went wrong for id: " + obj.getId());      }
+
     }
 
-    scanner.close();
+     scanner.close();
     mapper.writeValue(new File("lab-papers-please\\output\\starwars.json"), starWars);
     mapper.writeValue(new File("lab-papers-please\\output\\hitchhiker.json"), hitchhikers);
     mapper.writeValue(new File("lab-papers-please\\output\\rings.json"), rings);
     mapper.writeValue(new File("lab-papers-please\\output\\marvel.json"), marvel);
-
-    List<Character> individualsList = mapper.readValue(data.toString(), new TypeReference<List<Character>>() {});
-    for (Character test: individualsList){System.out.println(test.toString());}
- for (Character obj: individualsList){ System.out.println(obj.toString());}
-   System.out.println("\nCharacters with odd id: ");
-
-
-
-    for (Character obj: individualsList){
-      if(obj.getId() % 2 != 0){
-          System.out.println(obj.toString());
-      }
-    }
-    System.out.println("\nCharacters with specified age: ");
-    for (Character obj: individualsList){
-      if (obj.getAge() > 0) {
-        System.out.println(obj.toString());
-      } else {
-        System.out.println("\nCharacter with unknown age (age = 0): " + obj.toString());
-      }
-    }
 }
 
 record Universe(
