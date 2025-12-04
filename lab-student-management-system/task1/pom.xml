@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tum</groupId>
+  <artifactId>student-management</artifactId>
+  <version>1.0.0</version>
+  <name>TUM Student Management</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <mainClass>com.tum.studentmanagement.Main</mainClass>
+  </properties>
+
+  <dependencies>
+    <!-- no external dependencies -->
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <!-- ...existing plugins... -->
+    </plugins>
+  </build>
+</project>

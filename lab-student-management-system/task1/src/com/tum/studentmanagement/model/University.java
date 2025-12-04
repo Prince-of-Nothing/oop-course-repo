@@ -1,10 +1,14 @@
 package com.tum.studentmanagement.model;
 
-import com.tum.studentmanagement.util.Utils;
-
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+import com.tum.studentmanagement.utils.Utils;
 
 /**
  * In-memory University aggregate. Serializable for SaveManager persistence.
