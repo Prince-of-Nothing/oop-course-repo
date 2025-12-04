@@ -1,0 +1,11 @@
+com\tum\studentmanagement\model\StudentFacultyPair.class
+com\tum\studentmanagement\util\AnsiColor$Color.class
+com\tum\studentmanagement\model\Faculty.class
+com\tum\studentmanagement\storage\SaveManager.class
+com\tum\studentmanagement\logger\OperationLogger.class
+com\tum\studentmanagement\model\University.class
+com\tum\studentmanagement\util\AnsiColor.class
+com\tum\studentmanagement\Main.class
+com\tum\studentmanagement\model\Student.class
+com\tum\studentmanagement\util\Utils.class
+com\tum\studentmanagement\utils\Utils.class
