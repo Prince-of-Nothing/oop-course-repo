@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-enum BooleanState {TRUE, FALSE, UNKNOWN}
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class Character {
