@@ -25,6 +25,7 @@ public class Character {
     private List<String> traits;
 
     // Constructor
+    
     public Character(int id, boolean isHumanoid, String planet, int age, List<String> traits) {
         this.id = id;
         if(isHumanoid){
