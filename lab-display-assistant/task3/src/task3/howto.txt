@@ -1,4 +1,0 @@
-javac -d out C:\Users\Unknown\Documents\GitHub\oop-course-repo\lab-display-assistant\task1\src\task1\Display.java
-javac -d out -cp out C:\Users\Unknown\Documents\GitHub\oop-course-repo\lab-display-assistant\task3\src\task3\Assistant.java
-javac -d out -cp out C:\Users\Unknown\Documents\GitHub\oop-course-repo\lab-display-assistant\task3\src\task3\Main.java
-java -cp out task3.Main
