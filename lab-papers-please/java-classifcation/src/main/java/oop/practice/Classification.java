@@ -7,7 +7,7 @@ public class Classification {
     public static int getClassification(Character individuals) {
         BooleanState isHumanoid = individuals.getIsHumanoid();
         String planet = individuals.getPlanet();
-        int age = individuals.getAge();
+        Integer age = individuals.getAge();
         List<String> traits = individuals.getTraits();
 
         // Print out the current values for debugging
@@ -49,38 +49,66 @@ public class Classification {
             }
         }
 
-        // Handle cases with missing planets
-        if (planet == null || "UNKNOWN".equalsIgnoreCase(planet)) {
-            if (isHumanoid == null || isHumanoid == BooleanState.FALSE) {
-                if (age > 0 && traits != null && traits.contains("BULKY")) {
-                    return 3; // Likely a Vogon
-                }
-            } else if (isHumanoid != null && isHumanoid == BooleanState.TRUE) {
-                if (traits != null && (traits.contains("EXTRA_ARMS") || traits.contains("EXTRA_HEAD"))) {
-                    return 3; // Likely a Betelgeusian
-                }
+
+    if (planet == null || planet.equalsIgnoreCase("UNKNOWN")) {
+            if (isHumanoid == BooleanState.FALSE && traits != null && traits.contains("BULKY")) {
+                return 3; // Likely Vogon
+            } else if (isHumanoid == BooleanState.TRUE && traits != null && traits.contains("BULKY")){
+                return 4;
+            }
+        }
+        if (planet != null){
+            if (planet.equalsIgnoreCase("Endor")){
+                return 1;
+            }
+             if (planet.equalsIgnoreCase("KASHYYYK")){
+                return 1;
+            }
+            if (planet.equalsIgnoreCase("ASGARD")){
+                return 2;
+            }
+            if (planet.equalsIgnoreCase("BETELGEUSE")){
+                return 3;
+            }
+            if (planet.equalsIgnoreCase("VOGSPHERE")){
+                return 3;
+            }
+            if (planet.equalsIgnoreCase("EARTH")){
+                return 4;
             }
         }
 
-        // If no specific classification fits, check for general traits
+        // Handle generic traits
         if (traits != null) {
-            if (traits.contains("GREEN") && (isHumanoid == null || isHumanoid == BooleanState.FALSE)) {
-                return 3; // Vogons
-            } else if (traits.contains("HAIRY") && age > 0) {
-                return 1; // General classification for hairy beings
-            }
+            if (traits.contains("GREEN")) {
+                return 3; // Vogon
+            } else if (traits.contains("HAIRY") ) {
+                return 1; // General hairy being
+            } else if ((traits.contains("Blonde")&& (isHumanoid == null || isHumanoid == BooleanState.TRUE))||(traits.contains("TALL")&&traits.contains("Blonde") )) {
+                return 2; // Likely Asgardian
+            } else if (traits.contains("EXTRA_ARMS") || traits.contains("EXTRA_HEAD")) {
+                return 3;
+            } else if (traits.contains("POINTY_EARS") ){ return 4;}
         }
 
-        // Default to the closest classification if none are met
+        // Default classification if only humanoid status and age are available
         if (isHumanoid != null) {
-            if (isHumanoid == BooleanState.TRUE) {
-                return 2; // Default to Asgardian for humanoids if nothing else matches
-            } else {
-                return 3; // Default to Vogon for non-humanoids if nothing else matches
+            if (isHumanoid == BooleanState.TRUE && (age == null || age <= 200)) {
+                return 3; // Default to Vogon for humanoids with no specific planet or traits
             }
         }
 
-        // If still no classification, return 4 (as a catch-all for unspecified)
-        return -1; // Unspecified fallback
+        //handle LOR cases 4 , 14
+        if (planet.equalsIgnoreCase("Earth")){
+            if( traits != null && traits.contains("BULKY") && traits.contains("SHORT")) {
+                return 4;//case 4
+            }
+        } else if (isHumanoid != null & isHumanoid == BooleanState.TRUE && age > 5000) {
+            return 4;// case 21
+        }
+
+        // Fallback for unspecified characters
+        return -1; // Unspecified character
     }
+
 }
