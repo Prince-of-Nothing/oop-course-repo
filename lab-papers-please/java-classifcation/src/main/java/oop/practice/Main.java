@@ -49,79 +49,96 @@ public class Main {
 
    
     List<Character> individualsList = mapper.readValue(data.toString(), new TypeReference<List<Character>>() {});
-  for(JsonNode entry : data){
+  for (Character individuals : individualsList) {
 
-      PrettyPrint.printEntry(entry);
-    }
-    for (Character obj: individualsList){
-
-
-      if(obj.getId() % 2 != 0){
-
-
-        System.out.println(obj.toString());
-
-
-      }
-
-
-      JsonNode entry = mapper.valueToTree(obj);
-
-
-      switch (Classification.getClassification(obj)) {
-
-
+      JsonNode entry = mapper.valueToTree(individuals);
+      switch (Classification.getClassification(individuals)) {
         case 1:
-
-
-          starWars.individuals().add(entry);
-
-
-          break;
-
-
+        starWars.individuals().add(entry);
+        break;
         case 2:
-
-
-          hitchhikers.individuals().add(entry);
-
-
-          break;
-
-
+        hitchhikers.individuals().add(entry);
+        break;
         case 3:
-
-
-          marvel.individuals().add(entry);
-
-
-          break;
-
-
+        marvel.individuals().add(entry);
+        break;
         case 4:
-
-
-          rings.individuals().add(entry);
-
-
-          break;
-
-
+        rings.individuals().add(entry);
+        break;
         default:
-
-
-          System.out.println("Something went wrong for id: " + obj.getId());      }
-
+          System.out.println("Something went wrong for id: " + individuals.getId());      }
     }
 
-     scanner.close();
-    mapper.writeValue(new File("lab-papers-please\\output\\starwars.json"), starWars);
-    mapper.writeValue(new File("lab-papers-please\\output\\hitchhiker.json"), hitchhikers);
-    mapper.writeValue(new File("lab-papers-please\\output\\rings.json"), rings);
-    mapper.writeValue(new File("lab-papers-please\\output\\marvel.json"), marvel);
-}
+ mapper.writeValue(new File("./lab-papers-please/output/starwars.json"), starWars);
+    mapper.writeValue(new File("./lab-papers-please/output/hitchhiker.json"), hitchhikers);
+    mapper.writeValue(new File("./lab-papers-please/output/rings.json"), rings);
+    mapper.writeValue(new File("./lab-papers-please/output/marvel.json"), marvel);
+
+    System.out.println("\n");
+    showStarWars();
+
+    System.out.println("\n");
+    showHitchhiker();
+
+    System.out.println("\n");
+    showMarvel();
+
+    System.out.println("\n");
+    showRings();
+  }
+
+
 
 record Universe(
     String name,
     List<JsonNode> individuals
-) { }}
+) { }
+public static void showStarWars() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        File inputFile = new File("lab-papers-please\\output\\starwars.json");
+        JsonNode data = mapper.readTree(inputFile).get("individuals");
+        System.out.println("--------- Star Wars ---------");
+        for(JsonNode entry : data){
+
+            PrettyPrint.printEntry(entry);
+
+        }
+        System.out.println("-----------------------------");
+    }
+    public static void showHitchhiker() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        File inputFile = new File("lab-papers-please\\output\\hitchhiker.json");
+        JsonNode data = mapper.readTree(inputFile).get("individuals");
+        System.out.println("--------- Hitchhiker ---------");
+        for(JsonNode entry : data){
+
+            PrettyPrint.printEntry(entry);
+
+        }
+        System.out.println("------------------------------");
+    }
+    public static void showMarvel() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        File inputFile = new File("lab-papers-please\\output\\marvel.json");
+        JsonNode data = mapper.readTree(inputFile).get("individuals");
+        System.out.println("----------- Marvel -----------");
+        for(JsonNode entry : data){
+
+            PrettyPrint.printEntry(entry);
+
+        }
+        System.out.println("------------------------------");
+    }
+    public static void showRings() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        File inputFile = new File("lab-papers-please\\output\\rings.json");
+        JsonNode data = mapper.readTree(inputFile).get("individuals");
+        System.out.println("----- Lord of the Rings ------");
+        for(JsonNode entry : data){
+
+            PrettyPrint.printEntry(entry);
+
+        }
+        System.out.println("------------------------------");
+    }
+}
