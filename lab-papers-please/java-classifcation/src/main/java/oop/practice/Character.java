@@ -17,11 +17,11 @@ public class Character {
     private int id;
     @JsonDeserialize(using = BooleanStateDeserializer.class)
     private BooleanState isHumanoid= BooleanState.UNKNOWN;
-    @JsonProperty("planet")
+    @JsonProperty("originPlanet")
     private String planet="UNKNOWN";
     @JsonProperty("age")
     private int age;
-    @JsonProperty("traits")
+    @JsonProperty("physicalTraits")
     private List<String> traits;
 
     // Constructor

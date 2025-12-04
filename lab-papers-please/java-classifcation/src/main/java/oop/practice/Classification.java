@@ -24,18 +24,18 @@ public class Classification {
 
         // Handle Star Wars Classification
         if (isHumanoid == null || isHumanoid == BooleanState.FALSE) {
-            if ("Kashyyyk".equalsIgnoreCase(planet) && (age > -1 && age<401)&& traits != null && traits.contains("HAIRY")&& traits.contains("TALL")) {
+            if (planet != null &&"Kashyyyk".equalsIgnoreCase(planet) && (age > -1 && age<401)&& traits != null && traits.contains("HAIRY")&& traits.contains("TALL")) {
                 return 1; // Wookie
-            } else if ("Endor".equalsIgnoreCase(planet) && (age > -1 && age<61 )&& traits != null && traits.contains("HAIRY") && traits.contains("SHORT")) {
+            } else if (planet != null &&"Endor".equalsIgnoreCase(planet) && (age > -1 && age<61 )&& traits != null && traits.contains("HAIRY") && traits.contains("SHORT")) {
                 return 1; // Ewok
             }
-            if (age > -1 && age<201&&"Vogsphere".equalsIgnoreCase(planet)&&traits != null && traits.contains("BULKY")&& traits.contains("GREEN")){
+            if (planet != null &&age > -1 && age<201&&"Vogsphere".equalsIgnoreCase(planet)&&traits != null && traits.contains("BULKY")&& traits.contains("GREEN")){
                     return 3; // Likely a Vogon
                 }
         } else if (isHumanoid != null && isHumanoid == BooleanState.TRUE) {
-            if ("Asgard".equalsIgnoreCase(planet) && age > -1 && age<5001&& traits != null && traits.contains("BLONDE")&& traits.contains("TALL")) {
+            if (planet != null &&"Asgard".equalsIgnoreCase(planet) && age > -1 && age<5001&& traits != null && traits.contains("BLONDE")&& traits.contains("TALL")) {
                 return 2; // Asgardian
-            } else if ("Betelgeuse".equalsIgnoreCase(planet) && age > -1&&age<101 && traits != null &&
+            } else if (planet != null &&"Betelgeuse".equalsIgnoreCase(planet) && age > -1&&age<101 && traits != null &&
                     (traits.contains("EXTRA_ARMS") || traits.contains("EXTRA_HEAD"))) {
                 return 3; // Betelgeusian
             } else if ("Earth".equalsIgnoreCase(planet)) {
@@ -96,15 +96,6 @@ public class Classification {
             if (isHumanoid == BooleanState.TRUE && (age == null || age <= 200)) {
                 return 3; // Default to Vogon for humanoids with no specific planet or traits
             }
-        }
-
-        //handle LOR cases 4 , 14
-        if (planet.equalsIgnoreCase("Earth")){
-            if( traits != null && traits.contains("BULKY") && traits.contains("SHORT")) {
-                return 4;//case 4
-            }
-        } else if (isHumanoid != null & isHumanoid == BooleanState.TRUE && age > 5000) {
-            return 4;// case 21
         }
 
         // Fallback for unspecified characters

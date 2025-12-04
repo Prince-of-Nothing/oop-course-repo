@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class PrettyPrint {
     public static void readAndPrint() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        File inputFile = new File("src/main/resources/test-input.json");
+        File inputFile = new File("lab-papers-please\\input.json");
         JsonNode data = mapper.readTree(inputFile).get("data");
         for(JsonNode entry : data){
             printEntry(entry);

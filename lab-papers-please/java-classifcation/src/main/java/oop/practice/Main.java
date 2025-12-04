@@ -15,7 +15,7 @@ import oop.practice.Main.Universe;
 public class Main {
   public static void main(String[] args) throws IOException {
     ObjectMapper mapper = new ObjectMapper();
-    File inputFile = new File("lab-papers-please\\java-classifcation\\src\\main\\resources\\test-input.json");
+    File inputFile = new File("lab-papers-please\\input.json");
     JsonNode data = mapper.readTree(inputFile).get("data");
 
     Universe starWars = new Universe("starWars", new ArrayList<>());
