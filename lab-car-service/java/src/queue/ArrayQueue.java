@@ -1,53 +1,34 @@
 package queue;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class ArrayQueue<T> implements Queue<T> {
-    private T[] array;
-    private int front;
-    private int rear;
-    private int size;
+    private ArrayList<T> queue;
 
     public ArrayQueue() {
-        array = (T[]) new Object[10]; // initial capacity
-        front = 0;
-        rear = 0;
-        size = 0;
+        queue = new ArrayList<>();
     }
 
     @Override
-    public void enqueue(T element) {
-        if (size == array.length) {
-            resize();
-        }
-        array[rear] = element;
-        rear = (rear + 1) % array.length;
-        size++;
+    public void enqueue(T item) {
+        queue.add(item);
     }
 
     @Override
     public T dequeue() {
-        if (isEmpty()) {
-            throw new IllegalStateException("Queue is empty");
+        if (!isEmpty()) {
+            return queue.remove(0);
         }
-        T element = array[front];
-        front = (front + 1) % array.length;
-        size--;
-        return element;
+        return null;
     }
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return queue.isEmpty();
     }
 
     @Override
     public int size() {
-        return size;
-    }
-
-    private void resize() {
-        int newCapacity = array.length * 2;
-        array = Arrays.copyOf(array, newCapacity);
+        return queue.size(); // Return the size of the underlying list
     }
 }

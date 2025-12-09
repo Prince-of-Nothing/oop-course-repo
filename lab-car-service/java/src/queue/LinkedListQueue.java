@@ -48,7 +48,6 @@ public class LinkedListQueue<T> implements Queue<T> {
         return size == 0;
     }
 
-    @Override
     public int size() {
         return size;
     }

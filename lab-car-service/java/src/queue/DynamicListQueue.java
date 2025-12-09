@@ -27,7 +27,6 @@ public class DynamicListQueue<T> implements Queue<T> {
         return list.isEmpty();
     }
 
-    @Override
     public int size() {
         return list.size();
     }
