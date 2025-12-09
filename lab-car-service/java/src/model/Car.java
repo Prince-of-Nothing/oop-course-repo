@@ -1,14 +1,25 @@
 package model;
 
-public class Car {
-    private String id;
-    private String type;
-    private String passengerType;
-    private boolean isDining;
-    private int consumption;
 
-    // Constructor with the correct parameters
-    public Car(String id, String type, String passengerType, boolean isDining, int consumption) {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Car {
+    private final String id;
+    private final String type;
+    private final String passengerType;
+    private final boolean isDining;
+    private final int consumption;
+
+    @JsonCreator
+    public Car(
+            @JsonProperty("id") String id,
+            @JsonProperty("type") String type,
+            @JsonProperty("passengers") String passengerType,
+            @JsonProperty("isDining") boolean isDining,
+            @JsonProperty("consumption") int consumption
+    ) {
+
         this.id = id;
         this.type = type;
         this.passengerType = passengerType;

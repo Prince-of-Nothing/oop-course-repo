@@ -1,54 +1,58 @@
 package test;
 
-import dining.*;
-import refueling.*;
-import station.*;
-import model.Car;
-import queue.*;
-import station.Semaphore;
+import dining.Dineable;
+import dining.RobotDinner;
+import dining.PeopleDinner;
+import refueling.Refuelable;
+import refueling.ElectricStation;
+import refueling.GasStation;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 
 
 public class Test {
 
-    @Test
-    public void testGasCarsAreServedByGasStation() {
-        CarStation electricStation = new CarStation(new ElectricStation(), new PeopleDinner(), new ArrayQueue<>());
-        CarStation gasStation = new CarStation(new GasStation(), new RobotDinner(), new ArrayQueue<>());
+    private Dineable peopleDinner;
+    private Dineable robotDinner;
+    private Refuelable electricStation;
+    private Refuelable gasStation;
 
-        Semaphore semaphore = new Semaphore(electricStation, gasStation);
-
-        // Simulate input from generator (gas cars only)
-        Car gasCar1 = new Car("1", "GAS", "PEOPLE", true, 50);
-        Car gasCar2 = new Car("2", "GAS", "ROBOTS", false, 43);
-
-        semaphore.serveCars(Arrays.asList(gasCar1, gasCar2));
-
-        // Test that cars are served correctly (GasStation serves Gas cars)
-        assertEquals(0, electricStation.getQueue().size());  // Electric station should have no cars
-        assertEquals(2, gasStation.getQueue().size());  // Gas station should have 2 cars
+    @BeforeEach
+    public void setUp() {
+        // Initialize service objects before each test
+        peopleDinner = new PeopleDinner();
+        robotDinner = new RobotDinner();
+        electricStation = new ElectricStation();
+        gasStation = new GasStation();
 
     }
+
     @Test
-    public void testElectricCarsAreServedByElectricStation() {
-        CarStation electricStation = new CarStation(new ElectricStation(), new PeopleDinner(), new ArrayQueue<>());
-        CarStation gasStation = new CarStation(new GasStation(), new RobotDinner(), new ArrayQueue<>());
+    public void testRefueling() {
+        // Test refueling operations
+        electricStation.refuel("E1");
+        gasStation.refuel("G1");
+        electricStation.refuel("E2");
 
-        Semaphore semaphore = new Semaphore(electricStation, gasStation);
+        // Assert fuel counts
+        assertEquals(2, ElectricStation.getElectricCarsFueled(), "Electric cars refueled count should be 2.");
+        assertEquals(1, GasStation.getGasCarsRefueled(), "Gas cars refueled count should be 1.");
+    }
 
-        // Simulate input from generator (electric cars only)
-        Car electricCar1 = new Car("1", "ELECTRIC", "PEOPLE", true, 32);
-        Car electricCar2 = new Car("2", "ELECTRIC", "ROBOTS", false, 33);
+    @Test
+    public void testDining() {
+        // Test dining operations
+        peopleDinner.serveDinner("P1");
+        robotDinner.serveDinner("R1");
+        peopleDinner.serveDinner("P2");
 
-        semaphore.serveCars(Arrays.asList(electricCar1, electricCar2));
-
-        // Test that cars are served correctly (ElectricStation serves Electric cars)
-        assertEquals(2, electricStation.getQueue().size());  // Electric station should have 2 cars
-        assertEquals(0, gasStation.getQueue().size());  // Gas station should have no cars
-
+        
+        // Assert dinner counts
+        assertEquals(2, PeopleDinner.getPeopleServed(), "People served count should be 2.");
+        assertEquals(1, RobotDinner.getRobotsServed(), "Robots served count should be 1.");
     }
 
 }
