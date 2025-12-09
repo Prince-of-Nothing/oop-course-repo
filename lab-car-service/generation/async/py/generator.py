@@ -1,8 +1,8 @@
 import json
-import random
 import os
-import time
+import random
 import shutil
+import time
 
 # Constants, change something here, the whole program changes:)
 OUTPUT_DIR = "queue"
