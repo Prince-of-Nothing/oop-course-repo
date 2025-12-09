@@ -1,32 +1,30 @@
 package station;
 
 import dining.Dineable;
-import refueling.Refuelable;
-import queue.Queue;
 import model.Car;
+import queue.Queue;
+import refueling.Refuelable;
+
 
 public class CarStation {
-    private Dineable diningService;
     private Refuelable refuelingService;
+    private Dineable diningService;
     private Queue<Car> queue;
 
-    // Constructor to inject dependencies
-    public CarStation(Dineable diningService, Refuelable refuelingService, Queue<Car> queue) {
-        this.diningService = diningService;
+    public CarStation(Refuelable refuelingService, Dineable diningService, Queue<Car> queue) {
         this.refuelingService = refuelingService;
+        this.diningService = diningService;
         this.queue = queue;
     }
 
-    // Method to serve cars
+    public void addCar(Car car) {
+        queue.enqueue(car);
+    }
+
     public void serveCars() {
         while (!queue.isEmpty()) {
             Car car = queue.dequeue();
-            System.out.println("Serving car " + car.getId());
-
-            // Serve dinner if needed
-            if (car.getPassengerType().equals("PEOPLE")) {
-                diningService.serveDinner(car.getId());
-            } else if (car.getPassengerType().equals("ROBOTS")) {
+            if (car.isDining()) {
                 diningService.serveDinner(car.getId());
             }
 
@@ -38,9 +36,7 @@ public class CarStation {
             }
         }
     }
-
-    // Method to add cars to the queue
-    public void addCar(Car car) {
-        queue.enqueue(car);
+    public Queue<Car> getQueue() {
+        return queue;
     }
 }
