@@ -5,12 +5,6 @@ import model.Car;
 
 import java.io.IOException;
 
-/**
- * Semaphore implementation that matches the tests and Scheduler usage:
- * - Constructor: Semaphore(CarStation carStation)
- * - guideCar(String json) : parses a single car JSON, adds to CarStation queue and updates counters
- * - getCountGasCars(), getCountElectricCars(), getCarStation()
- */
 public class Semaphore {
     private final CarStation carStation;
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -20,11 +14,6 @@ public class Semaphore {
     public Semaphore(CarStation carStation) {
         this.carStation = carStation;
     }
-
-    /**
-     * Parse the JSON describing a single Car, add it to the station queue and update counters.
-     * This is the method used in SemaphoreTest.
-     */
     public void guideCar(String carJson) {
         try {
             Car car = objectMapper.readValue(carJson, Car.class);
