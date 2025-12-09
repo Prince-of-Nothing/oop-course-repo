@@ -1,0 +1,12 @@
+{
+    "java.project.sourcePaths": [
+        "lab-student-management-system/task1/src",
+        "lab-more-coffee/task4/src",
+        "lab-more-coffee/task4/coffee/src",
+        "lab-more-coffee/task3/src",
+        "lab-more-coffee/task2/src",
+        "lab-more-coffee/task1/src",
+        "lab-display-assistant/task4/src",
+        "lab-car-service/java/src"
+    ]
+}
