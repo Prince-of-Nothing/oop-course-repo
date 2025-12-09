@@ -1,12 +1,7 @@
 package test;
 
-import dining.Dineable;
-import dining.RobotDinner;
-import dining.PeopleDinner;
-import refueling.Refuelable;
-import refueling.ElectricStation;
-import refueling.GasStation;
-
+import dining.*;
+import refueling.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
