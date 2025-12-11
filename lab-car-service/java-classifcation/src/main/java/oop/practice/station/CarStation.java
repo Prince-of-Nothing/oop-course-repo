@@ -11,7 +11,7 @@ public class CarStation {
     private final Dineable robotDiningService;
     private final Refuelable electricRefuelingService;
     private final Refuelable gasRefuelingService;
-    private final ArrayQueue<Car> queue;
+    private final Queue<Car> queue;
 
     // Counters
     private int gasCars = 0;
@@ -28,7 +28,7 @@ public class CarStation {
         this.robotDiningService = new RobotDinner();
         this.electricRefuelingService = new ElectricStation();
         this.gasRefuelingService = new GasStation();
-        this.queue = new ArrayQueue<>();
+        this.queue = new DynamicListQueue<>();
     }
 
     public void addCar(Car car) {

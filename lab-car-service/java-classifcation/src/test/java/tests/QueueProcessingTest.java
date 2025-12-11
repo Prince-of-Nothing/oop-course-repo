@@ -60,8 +60,5 @@ public class QueueProcessingTest {
         // Serve queued cars
         station.serveCars();
 
-        // Replace these with expected numbers according to your test data
-        int expectedGasCars = 2;
-        int expectedElectricCars = 1;
    }
 }
