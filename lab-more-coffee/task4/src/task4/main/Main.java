@@ -8,4 +8,3 @@ public class Main {
         barista.start(); // all interaction happens here
     }
 }
-
